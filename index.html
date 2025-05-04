@@ -1,0 +1,817 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>中视通人工智能</title>
+		<meta name="description" content="网站描述" />
+		<meta name="keywords" content="关键词" />
+		<meta name="author" content="order by" />
+		<meta http-equiv="MSThemeCompatible" content="Yes" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<link rel="stylesheet" type="text/css" href="style/css/style_2_common.css" />
+		<link rel="stylesheet" type="text/css" href="style/css/style_2_portal_index.css" />
+		<script src="style/js/jquery-1.7.2.js" type="text/javascript"></script>
+		<script src="style/js/common.js" type="text/javascript"></script>
+		<script src="style/js/pace.js" type="text/javascript"></script>
+		<link href="style/css/style.css" rel="stylesheet" type="text/css" />
+	</head>
+
+	<style>
+		.side-nav {
+			position: fixed;
+			left: 3px;
+			top: 50%;
+			transform: translateY(-50%);
+			z-index: 1000;
+			background: rgba(0, 0, 0, 0.9);
+			border-radius: 20px;
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+			padding: 16px 7px;
+		}
+
+		.side-nav ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			gap: 15px;
+		}
+		.side-nav li a {
+			list-style: none;
+			text-decoration: none;
+			color: wheat;
+			font-weight: 500;
+			padding: 12px 20px;
+			border-radius: 8px;
+			transition: all 0.3s ease;
+			display: block;
+			white-space: nowrap;
+
+		}
+
+		.side-nav li a:hover {
+			background: #3498db;
+			color: white;
+			transform: translateX(5px);
+		}
+
+		.side-nav li.active a {
+			background: #2980b9;
+			color: white;
+		}
+
+		#imgs {
+			width: 50px;
+		}
+
+		#biaoti {
+			padding-top: 7px;
+			width: 100%;
+			font-size: 22px;
+			margin-left: 60px;
+			color: rgba(255, 255, 255, 0.8);
+
+		}
+
+		#hd {
+			background-color: blue;
+			background: #FFF;
+			height: 60px;
+			order-bottom: 1px solid #E6E6E6;
+		}
+
+		.section page3 {
+			background: rgba(255, 255, 255, 0.5);
+		}
+
+		.section page4 {
+			background: rgba(255, 255, 255, 0.5);
+		}
+	</style>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<body id="nv_portal" class="pg_index">
+		<!-- 右侧导航栏 -->
+		<nav class="side-nav">
+			<ul class="nav-list">
+				<li class="nav-item">
+					<a href="#banner" >
+						<i class="fas fa-home nav-icon"></i>
+						<span>主页顶部</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="#service" >
+						<i class="fas fa-users nav-icon"></i>
+						<span>我们团队</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="#cases" >
+						<i class="fas fa-laptop-code nav-icon"></i>
+						<span>技能案例</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="#about" >
+						<i class="fas fa-info-circle nav-icon"></i>
+						<span>关于我们</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="#client" >
+						<i class="fas fa-robot nav-icon"></i>
+						<span>AI工具</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="#contact" >
+						<i class="fas fa-envelope nav-icon"></i>
+						<span>联系我们</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+		<div id="append_parent"></div>
+		<div id="ajaxwaitid"></div>
+		<div id="toptb" class="cl" style="display:none;"> </div>
+		<div id="hd">
+			<div class="clear"></div>
+			<div id="week_nav">
+				<div class="wk_navwp">
+					<div class="wk_lonav">
+						<div class="wk_logo">
+							<h2><a href="index.html" title=""><img id="imgs"
+										src="style/images/logo.png" alt="" border="0" /></a>
+
+							</h2>
+							<h1 id="biaoti" "><a style=" color: #E6E6E6;" href="index.html">
+								中视通人工智能</a></h1>
+						</div>
+						<div class="wk_inav">
+							<ul class="nav">
+								<li><a href="index.html">网站首页</a></li>
+								<li><a href="CompanyProfilePage.html">公司简介</a></li>
+								<li><a href="CompanyPhilosophyPage.html">公司理念</a></li>
+								<li><a href="EmployeeAchievementPage.html">证书查询</a></li>
+								<li><a href="ArtificialIntelligenceProblemPage.html">常见问题</a></li>
+								<li><a href="CompanyAITrainingPage.html">AI学习营</a></li>
+								<li><a href="CompanyLoginPage.html">学习登录</a></li>
+								<li><a href="ContactUsPage.html">联系我们</a></li>
+
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div id="mu" class="cl">
+			<div class="wp"> </div>
+		</div>
+		<script src="style/js/week_nav.js" type="text/javascript"></script>
+		<div id="wp" class="wp">
+			<script src="style/js/jquery-1.7.2.js" type="text/javascript"></script>
+			<script src="style/js/jquery.fullpage.min.js" type="text/javascript"></script>
+			<script src="style/js/scoll.js" type="text/javascript"></script>
+			<script src="style/js/addons.js" type="text/javascript"></script>
+			<script src="style/js/case.js" type="text/javascript"></script>
+			<script src="style/js/tab.lib.js" type="text/javascript"></script>
+			<script type="text/javascript">
+				PTM(document).ready(function() {
+
+					PTM(".wk_about").tab({
+
+						tabId: "#wk_about_menu",
+						tabTag: "a",
+						conId: "#wk_about_div",
+						conTag: "div.wk_aaa",
+						act: "mouseover",
+						effact: "scrollx",
+						dft: 0
+
+					});
+
+				});
+			</script>
+		</div>
+		<div class="clear"></div>
+		<div class="wk_index_main">
+
+			<!--page1-->
+
+			<div class="section page1" id="page1">
+				<div class="wk_slide-wrap">
+					<ul>
+						<li id="wk_s1" class="wk_selected">
+							<div class="wk_banner">
+								<video class="wk_video" autoplay loop muted playsinline>
+									<source src="style/video/video.mp4" type="video/mp4">
+									Your browser does not support the video tag.
+								</video>
+							</div>
+							<div class="wk_wrap">
+								<div class="wk_banner13"><img src="style/images/banner13.png" alt="" /></div>
+								<div class="wk_banner12"><img src="style/images/banner12.png" alt="" /></div>
+								<div class="wk_banner14"><img src="style/images/banner14.png" alt="" /></div>
+
+							</div>
+						</li>
+						<li id="wk_s2">
+							<div class="wk_banner">
+								<video class="wk_video" autoplay loop muted playsinline>
+									<source src="style/video/video.mp4" type="video/mp4">
+									Your browser does not support the video tag.
+								</video>
+							</div>
+							<div class="wk_wrap">
+								<div class="wk_banner22"><img src="style/images/banner22.png" alt="" /></div>
+								<div class="wk_banner23"><img src="style/images/banner12.png" alt="" /></div>
+
+							</div>
+						</li>
+						<li id="wk_s3">
+							<div class="wk_banner"> <video class="wk_video" autoplay loop muted playsinline>
+									<source src="style/video/video.mp4" type="video/mp4">
+									Your browser does not support the video tag.
+								</video></div>
+							<div class="wk_wrap">
+								<div class="wk_banner32"><img src="style/images/banner32.png" alt="" /></div>
+								<div class="wk_banner33"><img style="width:300px; height: 60px;margin-left: 156px;"
+										src="style/images/deepseek.png" alt="" /></div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="wk_arrow"><a href="#service"><img src="style/images/ico3.png" /></a></div>
+				<div class="wk_slide-nav-wrap">
+					<div id="wk_slide-nav">
+						<ul>
+							<li class="wk_nav-line"></li>
+							<li class="wk_nav-bullet-container active" data-index="0"><a class="nav-link"
+									href="javascript:void(0)">
+									<div class="nav-bullet"></div>
+									<div class="nav-text">人工智能</div>
+								</a></li>
+							<li class="wk_nav-line"></li>
+							<li class="wk_nav-bullet-container" data-index="1"><a class="nav-link"
+									href="javascript:void(0)">
+									<div class="nav-bullet"></div>
+									<div class="nav-text">人工智能+ 传统行业深度融合</div>
+								</a></li>
+							<li class="wk_nav-line"></li>
+							<li class="wk_nav-bullet-container" data-index="2"><a class="nav-link"
+									href="javascript:void(0)">
+									<div class="nav-bullet"></div>
+									<div class="nav-text">人工智能AIGC培训</div>
+								</a></li>
+							<li class="wk_nav-line"> </li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!--page2-->
+
+			<div class="section page2" id="page2">
+				<div style="background:rgba(0, 0, 0, 0.4); width: 84%;" class="wk_fwxm">
+					<ul>
+						<li class="wk_li1">
+							<div class="wk_fwxm_bg"></div>
+							<div class="wk_fwxm_main">
+								<div class="wk_fwxm_ico"></div>
+								<h2>AIGC生成制作</h2>
+								<p>AIGC generation and production</p>
+								<div class="wk_fwxm_des">我们团队致力于AIGC
+									AIGC技术的核心思想是利用人工智能算法生成具有一定创意和质量的内容。通过训练模型和大量数据的学习，AIGC可以根据输入的条件或指导，生成与之相关的内容。例如，通过输入关键词、描述或样本，AIGC可以生成与之相匹配的文章、图像、音频等。
+								</div>
+								<div class="wk_ljzx"><a href="ContactUsPage.html" target="_blank">立即咨询</a></div>
+							</div>
+						</li>
+						<li class="wk_li2">
+							<div class="wk_fwxm_bg"></div>
+							<div class="wk_fwxm_main">
+								<div class="wk_fwxm_ico"></div>
+								<h2>人工智能讲师培训</h2>
+								<p>A I &nbsp; Instructor Training</p>
+								<div class="wk_fwxm_des">人工智能讲师培训旨在培养具备AI技术知识、教学能力和实践经验的专业人才，以应对教育机构、企业和培训机构对AI教育的需求。
+									推荐微软 Azure AI工程师认证，通过系统化的培训与认证，人工智能讲师可成为推动教育变革的核心力量，助力个人与企业实现技术转型。</div>
+								<div class="wk_ljzx"><a href="ContactUsPage.html" target="_blank">立即咨询</a></div>
+							</div>
+						</li>
+						<li class="wk_li3">
+							<div class="wk_fwxm_bg"></div>
+							<div class="wk_fwxm_main">
+								<div class="wk_fwxm_ico"></div>
+								<h2>人工智能 &nbsp;智能设备</h2>
+								<p>Artificial intelligence devices</p>
+								<div class="wk_fwxm_des">
+									载端侧大模型，支持本地化生成式AI应用（如实时翻译、图像编辑），实现低延迟的文本生成与图像渲染，大模型训练与复杂任务处理（如生成式设计、预测性维护），通过API调用赋能终端，人工智能在教育行业的应用正在深刻改变教学方式，AI正在推动教育行业的智能化转型。
+								</div>
+								<div class="wk_ljzx"><a href="ContactUsPage.html" target="_blank">立即咨询</a></div>
+							</div>
+						</li>
+						<li class="wk_li4">
+							<div class="wk_fwxm_bg"></div>
+							<div class="wk_fwxm_main">
+								<div class="wk_fwxm_ico"></div>
+								<h2>创新技术研发</h2>
+								<p> Innovation and Technology</p>
+								<div class="wk_fwxm_des">
+									山西中视通智能科技有限公司专注于人工智能领域，汇聚了一批顶尖科研人才，致力于创新技术研发。主要业务涵盖AI人工智能教育培训、智能软硬件开发、智能设备销售等，为各行各业提供高效的人工智能解决方案。公司秉承“智能引领未来”的理念，推动人工智能技术与应用的深度融合，助力社会发展。
+								</div>
+								<div class="wk_ljzx"><a href="ContactUsPage.html" target="_blank">立即咨询</a></div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<!--page3-->
+
+			<div class="section page3" id="page3">
+				<div class="case">
+					<h2><img src="style/images/case_title.png" alt="" /></h2>
+					<h2 class="wk_h2"><img src="style/images/case_title1.png" alt="" /></h2>
+					<div class="wk_btndiv"> <a class="abtn aleft" href="javascript:void(0);"></a> <a class="abtn aright"
+							href="javascript:void(0);"></a> </div>
+					<div class="wk_scrollcontainer">
+						<ul>
+							<li>
+								<div class="wk_case_list"> <a href="EmployeeAchievementPage.html" target="_blank"
+										title="Jackery app">
+										<div class="wk_case_img"><img src="uploads/shifujun.png" width="275"
+												height="190" alt="shifujun  " /></div>
+										<div class="wk_case_ico"></div>
+										<div class="wk_case_xian"> <span class="wk_span_1"></span> <span
+												class="wk_span_2"></span> <span class="wk_span_3"></span> <span
+												class="wk_span_4"></span> </div>
+									</a> </div>
+								<div class="wk_case_list"> <a href="EmployeeAchievementPage.html" target="_blank"
+										title="liujingjing ai 900">
+										<div class="wk_case_img"><img src="uploads/liujingjing.png" width="275"
+												height="190" alt="liujingjing " /></div>
+										<div class="wk_case_ico"></div>
+										<div class="wk_case_xian"> <span class="wk_span_1"></span> <span
+												class="wk_span_2"></span> <span class="wk_span_3"></span> <span
+												class="wk_span_4"></span> </div>
+									</a> </div>
+								<div class="wk_case_list"> <a href="EmployeeAchievementPage.html" target="_blank"
+										title="caiyiya">
+										<div class="wk_case_img"><img src="uploads/caiyiya.png" width="275" height="190"
+												alt="caiyiya" /></div>
+										<div class="wk_case_ico"></div>
+										<div class="wk_case_xian"> <span class="wk_span_1"></span> <span
+												class="wk_span_2"></span> <span class="wk_span_3"></span> <span
+												class="wk_span_4"></span> </div>
+									</a> </div>
+								<div class="wk_case_list"> <a href="EmployeeAchievementPage.html" target="_blank"
+										title="wangjiakai">
+										<div class="wk_case_img"><img src="uploads/wangjiakai.png" width="275"
+												height="190" alt="wangjiakai" /></div>
+										<div class="wk_case_ico"></div>
+										<div class="wk_case_xian"> <span class="wk_span_1"></span> <span
+												class="wk_span_2"></span> <span class="wk_span_3"></span> <span
+												class="wk_span_4"></span> </div>
+									</a> </div>
+								<div class="wk_case_list"> <a href="EmployeeAchievementPage.html" target="_blank"
+										title="wangjinyu">
+										<div class="wk_case_img"><img src="uploads/wangjinyu.png" width="275"
+												height="190" alt="wangjinyu" /></div>
+										<div class="wk_case_ico"></div>
+										<div class="wk_case_xian"> <span class="wk_span_1"></span> <span
+												class="wk_span_2"></span> <span class="wk_span_3"></span> <span
+												class="wk_span_4"></span> </div>
+									</a> </div>
+								<div class="wk_case_list"> <a href="EmployeeAchievementPage.html" target="_blank"
+										title="baoshanzhao">
+										<div class="wk_case_img"><img src="uploads/baoshanzhao.png" width="275"
+												height="190" alt="baoshanzhao" /></div>
+										<div class="wk_case_ico"></div>
+										<div class="wk_case_xian"> <span class="wk_span_1"></span> <span
+												class="wk_span_2"></span> <span class="wk_span_3"></span> <span
+												class="wk_span_4"></span> </div>
+									</a> </div>
+								<div class="wk_case_list"> <a href="EmployeeAchievementPage.html" target="_blank"
+										title="yanglei">
+										<div class="wk_case_img"><img src="uploads/yanglei.png" width="275" height="190"
+												alt="yanglei" /></div>
+										<div class="wk_case_ico"></div>
+										<div class="wk_case_xian"> <span class="wk_span_1"></span> <span
+												class="wk_span_2"></span> <span class="wk_span_3"></span> <span
+												class="wk_span_4"></span> </div>
+									</a> </div>
+								<div class="wk_case_list"> <a href="EmployeeAchievementPage.html" target="_blank"
+										title="yangqing">
+										<div class="wk_case_img"><img src="uploads/yangqing.png" width="275"
+												height="190" alt="yangqing" /></div>
+										<div class="wk_case_ico"></div>
+										<div class="wk_case_xian"> <span class="wk_span_1"></span> <span
+												class="wk_span_2"></span> <span class="wk_span_3"></span> <span
+												class="wk_span_4"></span> </div>
+									</a> </div>
+
+							</li>
+							<li>
+								<div class="wk_case_list"> <a href="EmployeeAchievementPage.html" target="_blank"
+										title="zhangwenhui">
+										<div class="wk_case_img"><img src="uploads/zhangwenhui.png" width="275"
+												height="190" alt="zhangwenhui" /></div>
+										<div class="wk_case_ico"></div>
+										<div class="wk_case_xian"> <span class="wk_span_1"></span> <span
+												class="wk_span_2"></span> <span class="wk_span_3"></span> <span
+												class="wk_span_4"></span> </div>
+									</a> </div>
+								<div class="wk_case_list"> <a href="EmployeeAchievementPage.html" target="_blank"
+										title="zhangxueyou">
+										<div class="wk_case_img"><img src="uploads/zhangxueyou.png" width="275"
+												height="190" alt="zhangxueyou" /></div>
+										<div class="wk_case_ico"></div>
+										<div class="wk_case_xian"> <span class="wk_span_1"></span> <span
+												class="wk_span_2"></span> <span class="wk_span_3"></span> <span
+												class="wk_span_4"></span> </div>
+									</a> </div>
+								<div class="wk_case_list"> <a href="EmployeeAchievementPage.html" target="_blank"
+										title="zhoujunqi">
+										<div class="wk_case_img"><img src="uploads/zhoujunqi.png" width="275"
+												height="190" alt="zhoujunqi" /></div>
+										<div class="wk_case_ico"></div>
+										<div class="wk_case_xian"> <span class="wk_span_1"></span> <span
+												class="wk_span_2"></span> <span class="wk_span_3"></span> <span
+												class="wk_span_4"></span> </div>
+									</a> </div>
+							</li>
+
+						</ul>
+
+						<!--首页-案例-内部调用代码设置位置-->
+
+					</div>
+				</div>
+				<script type="text/javascript">
+					PTM(function() {
+
+						PTM(".case").Xslider({
+
+							unitdisplayed: 1,
+
+							numtoMove: 1,
+
+							speed: 500,
+
+							scrollobjSize: Math.ceil(PTM(".uldiv").find("li").length * 1)
+
+						})
+
+					})
+				</script>
+			</div>
+
+			<!--page4-->
+
+			<div class="section page4" id="page4">
+				<div class="wk_about">
+					<h2><img src="style/images/about_title.png" alt="" /></h2>
+					<h2 class="wk_h2"><img src="style/images/about_title.png" alt="" /></h2>
+					<div class="wk_about_menu" id="wk_about_menu"><a class="active">简介</a><a>动态</a><a>历程</a></div>
+					<div class="wk_about_div" id="wk_about_div">
+						<div class="wk_about_main wk_aaa">
+							<div class="wk_about_left"><img style="width: 488px;height: 488px; "
+									src="style/images/logo.png" alt="" /></div>
+							<div class="wk_about_right">
+								<div class="wk_about_top"> <a><img src="style/images/about_ico1.png" alt="" /></a>
+									<a><img src="style/images/about_ico2.png" alt="" /></a> <a><img
+											src="style/images/about_ico3.png" alt="" /></a> <a
+										style="margin-right:0;"><img src="style/images/about_ico4.png" alt="" /></a>
+									<div class="clear"></div>
+								</div>
+								<div class="wk_about_des">
+									山西中视通科技有限公司成立于2016年，注册资本1000万元，总部位于山西省怀仁市
+									。作为人工智能领域的综合服务商，公司核心业务聚焦于：
+									人工智能技术开发：涵盖基础软件开发、算法模型研发及行业应用系统集成，重点服务教育、安防等领域
+									。2020年成功中标朔州陶瓷职业技术学院教学配套设施项目，体现其教育信息化实施能力
+									智能设备生态：通过子公司太原中视通（成立于2024年）拓展数字内容制作与硬件销售，形成"软件+硬件"协同发展模式。多元化经营布局：除人工智能主业外，公司还涉及广告制作、办公设备销售等配套服务，形成以技术为核心、多业态互补的业务架构。
+									山西中视通智能科技有限公司专注于人工智能领域，汇聚了一批顶尖科研人才，致力于创新技术研发。主要业务涵盖AI人工智能教育培训、智能软硬件开发、智能设备销售等，为各行各业提供高效的人工智能解决方案。公司秉承“智能引领未来”的理念，推动人工智能技术与应用的深度融合，助力社会发展。
+								</div>
+							</div>
+						</div>
+						<div class="wk_news_list wk_aaa">
+							<ul>
+								<li>
+									<dl>
+										<dt>2025-01-16</dt>
+									</dl>
+									<h4><a href="" title="" target="_blank">MicroSoft Azure AI AI讲师</a>
+									</h4>
+									<div class="wk_news_des">
+										企业培育Azure AI讲师需构建“技术认证+教学能力+项目实践”三位一体的培养体系，并深度融入微软技术生态。培养出20多位MicroSoft Azure AI
+										AI讲师</div>
+									<div class="wk_news_more"><a href="newsshow.html" title="阅读更多" target="_blank"></a>
+									</div>
+								</li>
+								<li>
+									<dl>
+										<dt>2025-02-04</dt>
+									</dl>
+									<h4><a href="" title="" target="_blank">学习DeepSeek-R1大模型</a>
+									</h4>
+									<div class="wk_news_des">
+										公司紧跟时代学习DeepSeek-R1大模型，应用AIGC位各行各业赋能，学习DeepSeek-R1不仅是掌握一项先进技术，更是参与AI推理时代的关键布局
+									</div>
+									<div class="wk_news_more"><a href="newsshow.html" title="阅读更多" target="_blank"></a>
+									</div>
+								</li>
+								<li>
+									<dl>
+										<dt>2025-02-12</dt>
+									</dl>
+									<h4><a href="" title="" target="_blank">怀仁市图书馆开展AI教育讲座</a>
+									</h4>
+									<div class="wk_news_des">
+										DeepSeek-R1大模型，正重塑教育行业的智能化未来。怀仁市图书馆作为晋北地区文化地标，携手AI技术先锋团队，共同打造一场聚焦AI+教育的深度探索之旅。
+									</div>
+									<div class="wk_news_more"><a href="newsshow.html" title="阅读更多" target="_blank"></a>
+									</div>
+								</li>
+								<li>
+									<dl>
+										<dt>2025-03-06</dt>
+									</dl>
+									<h4><a href="" title="" target="_blank">培训学习DeepSeek+AI软件</a>
+									</h4>
+									<div class="wk_news_des">
+										DeepSeek+AI 解锁智能时代核心生产力，零基础进阶AI应用专家，AI赋能，重塑职业竞争力，让DeepSeek成为你的24小时智能助手，从此告别低效重复！
+									</div>
+									<div class="wk_news_more"><a href="newsshow.html" title="阅读更多" target="_blank"></a>
+									</div>
+								</li>
+
+							</ul>
+
+
+
+						</div>
+						<div class="wk_history wk_aaa">
+							<div class="wk_blk_18"> <a class="LeftBotton" onmousedown="ISL_GoUp_1()"
+									onmouseup="ISL_StopUp_1()" onmouseout="ISL_StopUp_1()" href="javascript:void(0);"
+									target="_self"></a>
+								<div class="wk_pcont" id="ISL_Cont_11">
+									<div class="ScrCont">
+										<div id="List1_1">
+											<div id="List1_1">
+												<div class="wk_fzlc_s">
+													<h4>2025年01月16日</h4>
+													<div class="wk_his_ico"></div>
+													<dl>
+														<dt><img src="style/images/logo.png"></dt>
+														<dd>企业培育Azure
+															AI讲师需构建“技术认证+教学能力+项目实践”三位一体的培养体系，并深度融入微软技术生态。培养出20多位MicroSoft
+															Azure AI AI讲师</dd>
+													</dl>
+												</div>
+												<div class="wk_fzlc_b">
+													<h4>2025年02月04日</h4>
+													<div class="wk_his_ico"></div>
+													<dl>
+														<dt><img src="style/images/logo.png"></dt>
+														<dd>公司紧跟时代学习DeepSeek-R1大模型，应用AIGC位各行各业赋能，学习DeepSeek-R1不仅是掌握一项先进技术，更是参与AI推理时代的关键布局
+														</dd>
+													</dl>
+												</div>
+												<div class="wk_fzlc_s">
+													<h4>2025年02月12日</h4>
+													<div class="wk_his_ico"></div>
+													<dl>
+														<dt><img src="style/images/logo.png"></dt>
+														<dd>DeepSeek-R1大模型，正重塑教育行业的智能化未来。怀仁市图书馆作为晋北地区文化地标，携手AI技术先锋团队，共同打造一场聚焦AI+教育的深度探索之旅。
+														</dd>
+													</dl>
+												</div>
+												<div class="wk_fzlc_b">
+													<h4>2025年03月06日</h4>
+													<div class="wk_his_ico"></div>
+													<dl>
+														<dt><img src="style/images/logo.png"></dt>
+														<dd>DeepSeek+AI
+															解锁智能时代核心生产力，零基础进阶AI应用专家，AI赋能，重塑职业竞争力，让DeepSeek成为你的24小时智能助手，从此告别低效重复！
+														</dd>
+													</dl>
+												</div>
+
+											</div>
+
+											<!--首页-发展历程-内部调用代码设置位置-->
+
+										</div>
+										<div id="List2_1"></div>
+									</div>
+								</div>
+								<a class="RightBotton" onmousedown="ISL_GoDown_1()" onmouseup="ISL_StopDown_1()"
+									onmouseout="ISL_StopDown_1()" href="javascript:void(0);" target="_self"></a>
+							</div>
+							<div class="c"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--page5-->
+
+			<div class="section page5" id="page5">
+				<div style="background: rgba(0, 0, 0, 0.4);" class="wk_service">
+					<h2><img src="style/images/service_title.png" alt="" /></h2>
+					<h2 class="wk_h2"><img src="style/images/service_title.png" alt="" /></h2>
+					<div class="wk_service_xian"></div>
+					<div class="wk_service_main" style="    background: rgba(0, 0, 0, .34);	">
+						<ul>
+							<li><a href="https://www.deepseek.com/" target="_blank"> <img
+										src="style/images/service_img1.png" alt="" />
+								</a> <span class="wk_span_1"></span>
+								<span class="wk_span_2"></span> <span class="wk_span_3"></span> <span
+									class="wk_span_4"></span>
+							</li>
+							<li><a href="https://www.doubao.com/" target="_blank"> <img
+										src="style/images/service_img2.png" alt="" /> <span class="wk_span_1"></span>
+								</a><span class="wk_span_2"></span> <span class="wk_span_3"></span> <span
+									class="wk_span_4"></span>
+							</li>
+							<li> <a href="https://www.coze.cn/home" target="_blank"><img
+										src="style/images/service_img3.png" alt="" /> <span class="wk_span_1"></span>
+								</a><span class="wk_span_2"></span> <span class="wk_span_3"></span> <span
+									class="wk_span_4"></span>
+							</li>
+							<li> <a href="https://metaso.cn/" target="_blank"><img src="style/images/service_img4.png"
+										alt="" /> <span class="wk_span_1"></span>
+								</a><span class="wk_span_2"></span> <span class="wk_span_3"></span> <span
+									class="wk_span_4"></span>
+							</li>
+							<li> <a href="https://chatglm.cn/" target="_blank"><img src="style/images/service_img5.png"
+										alt="" /> <span class="wk_span_1"></span>
+								</a><span class="wk_span_2"></span> <span class="wk_span_3"></span> <span
+									class="wk_span_4"></span>
+							</li>
+							<li> <a href="https://xinghuo.xfyun.cn/" target="_blank"><img
+										src="style/images/service_img6.png" alt="" /> <span class="wk_span_1"></span>
+								</a><span class="wk_span_2"></span> <span class="wk_span_3"></span> <span
+									class="wk_span_4"></span>
+							</li>
+							<li> <a href="https://kimi.moonshot.cn/" target="_blank"><img
+										src="style/images/service_img7.png" alt="" /> <span class="wk_span_1"></span>
+								</a><span class="wk_span_2"></span> <span class="wk_span_3"></span> <span
+									class="wk_span_4"></span>
+							</li>
+
+							<li> <a href="https://tongyi.aliyun.com/" target="_blank"><img
+										src="style/images/service_img8.png" alt="" /> <span class="wk_span_1"></span>
+								</a><span class="wk_span_2"></span> <span class="wk_span_3"></span> <span
+									class="wk_span_4"></span>
+							</li>
+							<li> <a href="https://www.wenxiaobai.com/" target="_blank"><img
+										src="style/images/service_img9.png" alt="" /> <span class="wk_span_1"></span>
+								</a><span class="wk_span_2"></span> <span class="wk_span_3"></span> <span
+									class="wk_span_4"></span>
+							</li>
+							<li><a href="https://yuanbao.tencent.com/" target="_blank"> <img
+										src="style/images/service_img10.png" alt="" /> <span class="wk_span_1"></span>
+								</a><span class="wk_span_2"></span> <span class="wk_span_3"></span> <span
+									class="wk_span_4"></span>
+							</li>
+							<li><a href="https://yiyan.baidu.com/" target="_blank"> <img
+										src="style/images/service_img11.png" alt="" /> <span class="wk_span_1"></span>
+								</a><span class="wk_span_2"></span> <span class="wk_span_3"></span> <span
+									class="wk_span_4"></span>
+							</li>
+							<li><a href="https://jimeng.jianying.com/" target="_blank"> <img
+										src="style/images/service_img12.png" alt="" /> <span class="wk_span_1"></span>
+								</a><span class="wk_span_2"></span> <span class="wk_span_3"></span> <span
+									class="wk_span_4"></span>
+							</li>
+							<li> <a href="https://klingai.kuaishou.com/" target="_blank"><img
+										src="style/images/service_img13.png" alt="" /> <span class="wk_span_1"></span>
+								</a><span class="wk_span_2"></span> <span class="wk_span_3"></span> <span
+									class="wk_span_4"></span>
+							</li>
+							<li> <a href="https://aigc.baidu.com/welcome" target="_blank"><img
+										src="style/images/service_img14.png" alt="" /> <span class="wk_span_1"></span>
+								</a><span class="wk_span_2"></span> <span class="wk_span_3"></span> <span
+									class="wk_span_4"></span>
+							</li>
+							<li> <a href="https://cloud.siliconflow.cn/" target="_blank"><img
+										src="style/images/service_img15.png" alt="" /> <span class="wk_span_1"></span>
+								</a><span class="wk_span_2"></span> <span class="wk_span_3"></span> <span
+									class="wk_span_4"></span>
+							</li>
+						</ul>
+
+						<!--首页-合作客户-内部调用代码设置位置-->
+
+					</div>
+				</div>
+			</div>
+
+			<!--page6-->
+
+			<div class="section page6" id="page6">
+				<div id="ok" style="background: rgba(0, 0, 0, .8); width: 100%;height: 100%;">
+					<div class="wk_contact">
+						<div class="wk_contact_left"><img style="width: 400px;height: 400px;"
+								src="style/images/logo.png" alt="" /></div>
+						<div class="wk_contact_left1"><img style="width: 400px;height: 400px;"
+								src="style/images/logo.png" alt="" /></div>
+						<div class="wk_contact_right">
+							<h2><img src="style/images/contact_title.png" alt="" /></h2>
+							<ul class="wk_cont_div">
+								<li style=" margin-left: -60px;" class="wk_serve-ico-kf">业务咨询：<span
+										class="wk_cont_a"></span><a href="" target="_blank">0349-6861333 【点击咨询】</a></li>
+								<li style=" margin-left: -60px;" class="wk_serve-ico-kf">技术服务：<span
+										class="wk_cont_a"></span><a href="" target="_blank">0349-6861333 【点击咨询】</a></li>
+								<li></span>山西中视通科技有限公司AI人工智能</li>
+								<li></span>山西省朔州市怀仁市迎新街63号</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--index_footer-->
+
+			<div class="section fp-auto-height">
+				<div class="wk_footer_side">
+					<div class="wk_footer">Copyright © 2025.3 <a title="baidu" href="#" target="_blank">技术支持：</a> 备案号：<a
+							href="" target="_blank" title="">0349-6861333</a> <br />
+
+					</div>
+				</div>
+
+			</div>
+			<script src="style/js/banner.js" type="text/javascript"></script>
+			<div class="clear"></div>
+			<div class="wp"><!--[diy=diy1]-->
+
+				<div id="diy1" class="area"></div>
+
+				<!--[/diy]-->
+			</div>
+			<div class="clear"></div>
+			<div id="wp" class="wp"> </div>
+			<div id="wk_ft" style="display:none; ">
+				<div id="ft" class="wp cl" style="border:0;"> </div>
+			</div>
+			<ul id="scbar_type_menu" class="p_pop" style="display: none;">
+			</ul>
+
+			<link href="style/css/service.css" rel="stylesheet" type="text/css" />
+
+			<script type="text/javascript">
+				PTM(document).ready(function() {
+
+					PTM('#close_im').bind('click', function() {
+
+						PTM('#main-im').css("height", "0");
+
+						PTM('#im_main').hide();
+
+						PTM('#open_im').show();
+
+					});
+
+					PTM('#open_im').bind('click', function(e) {
+
+						PTM('#main-im').css("height", "272");
+
+						PTM('#im_main').show();
+
+						PTM(this).hide();
+
+					});
+
+
+
+					PTM(".weixing-container").bind('mouseenter', function() {
+
+						PTM('.weixing-show').show();
+
+					})
+
+					PTM(".weixing-container").bind('mouseleave', function() {
+
+						PTM('.weixing-show').hide();
+
+					});
+
+				});
+			</script>
+			<script src="style/js/home.js" type="text/javascript"></script>
+			<div id="scrolltop"> <span hidefocus="true"><a title="返回顶部" onclick="window.scrollTo('0','0')"
+						class="scrolltopa"><b>返回顶部</b></a></span> </div>
+			<script type="text/javascript">
+				_attachEvent(window, 'scroll', function() {
+					showTopLink();
+				});
+				checkBlind();
+			</script>
+			<div id="discuz_tips" style="display:none;"></div>
+			<script src="style/js/discuz_tips.js" type="text/javascript" charset="UTF-8"></script>
+	</body>
+</html>

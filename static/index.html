@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>中视通AI聊天机器人(接入DeepSeek-R1大模型)</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<style>
+		/* 全局样式 - 科技感深色主题 */
+		:root {
+			--primary: #00a8ff;
+			--secondary: #9c27b0;
+			--bg-dark: #121212;
+			--bg-light: #1e1e1e;
+			--text: #e0e0e0;
+		}
+
+		body {
+			font-family: 'Roboto', sans-serif;
+			background: linear-gradient(135deg, var(--bg-dark), var(--bg-light));
+			color: var(--text);
+			margin: 0;
+			padding: 0;
+			min-height: 100vh;
+		}
+
+		/* 聊天容器 - 玻璃态效果 */
+		.chat-container {
+			background: rgba(30, 30, 30, 0.7);
+			backdrop-filter: blur(10px);
+			border-radius: 15px;
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+			max-width: 1200px;
+			margin: 87px auto;
+			padding: 20px;
+		}
+
+		/* 更新头部样式 - 霓虹效果 */
+		.chat-header {
+			height: 60px;
+			background: linear-gradient(90deg, var(--primary), var(--secondary));
+			color: white;
+			box-shadow: 0 0 15px rgba(0, 168, 255, 0.5);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 12px 12px 0 0;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.chat-header::before {
+			content: '';
+			position: absolute;
+			top: -50%;
+			left: -50%;
+			width: 200%;
+			height: 200%;
+			background: linear-gradient(
+				to bottom right,
+				rgba(255, 255, 255, 0) 0%,
+				rgba(255, 255, 255, 0.1) 50%,
+				rgba(255, 255, 255, 0) 100%
+			);
+			transform: rotate(30deg);
+			animation: shine 3s infinite;
+		}
+
+		/* 聊天消息区域 - 带科技感滚动条 */
+		.chat-messages {
+			padding: 15px;
+			height: 500px;
+			overflow-y: scroll;
+			scrollbar-width: thin;
+			scrollbar-color: var(--primary) transparent;
+		}
+
+		.chat-messages::-webkit-scrollbar {
+			width: 6px;
+		}
+
+		.chat-messages::-webkit-scrollbar-thumb {
+			background-color: var(--primary);
+			border-radius: 3px;
+		}
+
+		/* 消息气泡样式 - 渐变发光效果 */
+		.message {
+			margin-bottom: 15px;
+			padding: 12px 18px;
+			border-radius: 18px;
+			word-wrap: break-word;
+			max-width: 75%;
+			position: relative;
+			transition: transform 0.3s ease, opacity 0.3s ease;
+			opacity: 0;
+			transform: translateY(20px);
+			animation: fadeIn 0.5s forwards;
+		}
+
+		/* 用户消息气泡样式 - 霓虹绿 */
+		.user-message {
+			background: linear-gradient(135deg, rgba(0, 200, 83, 0.8), rgba(0, 150, 136, 0.8));
+			color: white;
+			border-radius: 18px 18px 0 18px;
+			margin-left: auto;
+			box-shadow: 0 0 10px rgba(0, 200, 83, 0.3);
+			border: 1px solid rgba(0, 200, 83, 0.5);
+		}
+
+		/* 机器人消息气泡样式 - 霓虹蓝 */
+		.bot-message {
+			background: linear-gradient(135deg, rgba(0, 168, 255, 0.8), rgba(98, 0, 234, 0.8));
+			color: white;
+			border-radius: 18px 18px 18px 0;
+			margin-right: auto;
+			box-shadow: 0 0 10px rgba(0, 168, 255, 0.3);
+			border: 1px solid rgba(0, 168, 255, 0.5);
+		}
+
+		/* 聊天输入区域 - 科技感设计 */
+		.chat-input {
+			display: flex;
+			padding: 15px;
+			border-top: 1px solid rgba(255, 255, 255, 0.1);
+			background: rgba(30, 30, 30, 0.5);
+			border-radius: 0 0 12px 12px;
+		}
+
+		.chat-input input[type="text"] {
+			flex-grow: 1;
+			padding: 12px 20px;
+			background: rgba(255, 255, 255, 0.1);
+			border: 1px solid rgba(255, 255, 255, 0.2);
+			border-radius: 25px;
+			margin-right: 15px;
+			color: white;
+			font-size: 16px;
+			transition: all 0.3s ease;
+		}
+
+		.chat-input input[type="text"]::placeholder {
+			color: rgba(255, 255, 255, 0.5);
+		}
+
+		.chat-input input[type="text"]:focus {
+			outline: none;
+			border-color: var(--primary);
+			box-shadow: 0 0 15px rgba(0, 168, 255, 0.3);
+			background: rgba(255, 255, 255, 0.15);
+		}
+
+		.chat-input button {
+			padding: 12px 25px;
+			background: linear-gradient(135deg, var(--primary), var(--secondary));
+			color: white;
+			border: none;
+			border-radius: 25px;
+			cursor: pointer;
+			font-weight: bold;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			box-shadow: 0 0 15px rgba(0, 168, 255, 0.3);
+			transition: all 0.3s ease;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.chat-input button:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 0 20px rgba(0, 168, 255, 0.5);
+		}
+
+		.chat-input button::after {
+			content: '';
+			position: absolute;
+			top: -50%;
+			left: -50%;
+			width: 200%;
+			height: 200%;
+			background: linear-gradient(
+				to bottom right,
+				rgba(255, 255, 255, 0) 0%,
+				rgba(255, 255, 255, 0.1) 50%,
+				rgba(255, 255, 255, 0) 100%
+			);
+			transform: rotate(30deg);
+			animation: shine 3s infinite;
+		}
+
+		h1 {
+			text-align: center;
+			padding: 15px 0;
+			margin: 0;
+			font-size: 1.5rem;
+			text-shadow: 0 0 10px rgba(0, 168, 255, 0.5);
+			position: relative;
+			z-index: 1;
+		}
+
+		/* 动画定义 */
+		@keyframes fadeIn {
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		@keyframes shine {
+			to {
+				left: 150%;
+				top: 150%;
+			}
+		}
+
+		/* 响应式设计 */
+		@media (max-width: 768px) {
+			.chat-container {
+				margin: 0;
+				border-radius: 0;
+				min-height: 100vh;
+			}
+
+			.chat-messages {
+				height: calc(100vh - 180px);
+			}
+		}
+	</style>
+
+	<body>
+		<div class="chat-container">
+			<div class="chat-header">
+				<h1>中视通 AI 聊天机器人(已接入DeepSeek-V3-0324大模型)</h1>
+			</div>
+			<div class="chat-messages" id="chat-history">
+				<!-- 聊天消息将在这里显示 -->
+			</div>
+			<div class="chat-input">
+				<input type="text" id="user-input" placeholder="输入您的问题...">
+				<button onclick="sendMessage()">
+					<span>发送</span>
+				</button>
+			</div>
+		</div>
+	</body>
+	<script>
+		// 添加回车键发送消息功能
+		document.getElementById('user-input').addEventListener('keydown', function(event) {
+			if (event.key === 'Enter') {
+				sendMessage();
+			}
+		});
+
+		async function sendMessage() {
+			const input = document.getElementById('user-input');
+			const message = input.value.trim();
+			if (!message) return;
+
+			const chatHistory = document.getElementById('chat-history');
+			const userMessage = document.createElement('div');
+			userMessage.className = 'message user-message';
+			userMessage.innerHTML = `<strong>中视通用户：</strong> ${message}`;
+			chatHistory.appendChild(userMessage);
+			input.value = '';
+
+			// 滚动到底部
+			chatHistory.scrollTop = chatHistory.scrollHeight;
+
+			try {
+				const response = await fetch('/ask', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						message: message
+					})
+				});
+
+				if (!response.ok) {
+					throw new Error(`HTTP错误! 状态码: ${response.status}`);
+				}
+
+				const data = await response.json();
+				if (data.error) {
+					throw new Error(data.error);
+				}
+
+				// 创建机器人消息元素
+				const botMessage = document.createElement('div');
+				botMessage.className = 'message bot-message';
+				botMessage.innerHTML = `<strong>中视通AI机器人(Deepseek-V3-0324大模型)：</strong> ${data.answer}`;
+				chatHistory.appendChild(botMessage);
+
+				// 滚动到底部
+				chatHistory.scrollTop = chatHistory.scrollHeight;
+
+			} catch (error) {
+				const errorMessage = document.createElement('div');
+				errorMessage.className = 'message';
+				errorMessage.style.color = '#ff5252';
+				errorMessage.style.border = '1px solid #ff5252';
+				errorMessage.style.background = 'rgba(255, 82, 82, 0.1)';
+				errorMessage.innerHTML = `<strong>错误：</strong> ${error.message}`;
+				chatHistory.appendChild(errorMessage);
+				chatHistory.scrollTop = chatHistory.scrollHeight;
+			}
+		}
+	</script>
+</html>
